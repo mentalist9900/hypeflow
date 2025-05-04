@@ -1,4 +1,4 @@
-# HypeFlow - Solana NFT Marketplace
+# HypeFlow - Solana NFT DEX
 
 A modern platform for browsing, tracking, and minting Solana NFTs.
 
