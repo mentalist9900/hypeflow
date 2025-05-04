@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+.nft-card {
+  transition: transform 0.3s;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.nft-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.new-nft-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  padding: 0.35em 0.65em;
+  font-size: 0.85em;
+  animation: pulse 2s infinite;
+}
+
+.nft-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease;
+}
+
+.nft-image.hide {
+  opacity: 0;
+}
+
+.nft-image.show {
+  opacity: 1;
+}
+
+.image-loading-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  z-index: 1;
+}
+
+.app-header {
+  background: linear-gradient(90deg, #9945FF, #14F195);
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.price-badge {
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  
+  70% {
+    transform: scale(1.05);
+  }
+  
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Solana brand colors */
+.btn-outline-primary {
+  color: #9945FF;
+  border-color: #9945FF;
+}
+
+.btn-outline-primary:hover {
+  background-color: #9945FF;
+  border-color: #9945FF;
+  color: white;
+}
+
+.btn-outline-success {
+  color: #14F195;
+  border-color: #14F195;
+}
+
+.btn-outline-success:hover {
+  background-color: #14F195;
+  border-color: #14F195;
+  color: #000;
+}
+
+/* Image fallback animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s;
+} 
