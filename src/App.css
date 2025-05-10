@@ -1288,19 +1288,101 @@ body.dark-mode {
 
 .wallet-btn:hover {
   transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
 .phantom-btn {
-  background-color: #5b46d6;
+  background: #8A46FF;
 }
 
 .solflare-btn {
-  background-color: #fc812b;
+  background: #FD4848;
 }
 
 .wallet-btn svg {
   width: 16px;
   height: 16px;
+  margin-right: 5px;
+}
+
+/* New wallet dropdown styles */
+.wallet-dropdown {
+  position: relative;
+}
+
+.connect-wallet-btn {
+  background: linear-gradient(90deg, #8A46FF, #14F195);
+  border: none;
+  border-radius: 50px;
+  padding: 8px 18px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.connect-wallet-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 15px rgba(138, 70, 255, 0.3);
+}
+
+.wallet-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 100;
+  min-width: 180px;
+}
+
+.wallet-option {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 5px;
+}
+
+.wallet-option:last-child {
+  margin-bottom: 0;
+}
+
+.wallet-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wallet-option svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.wallet-option.phantom-btn {
+  background: none;
+}
+
+.wallet-option.phantom-btn:hover {
+  background-color: rgba(138, 70, 255, 0.1);
+}
+
+.wallet-option.solflare-btn {
+  background: none;
+}
+
+.wallet-option.solflare-btn:hover {
+  background-color: rgba(253, 72, 72, 0.1);
 }
 
 /* Tab navigation */
