@@ -20,10 +20,10 @@
     "react-toastify": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:3002",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start-react": "react-scripts start",
-    "start-server": "node server.js",
+    "start-server": "npm run dev",
     "start": "npm run dev",
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
