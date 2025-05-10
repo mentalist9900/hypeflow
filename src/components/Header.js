@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 
 const Header = ({ 
@@ -12,6 +12,8 @@ const Header = ({
   walletAddress,
   disconnectWallet
 }) => {
+  const [showWalletOptions, setShowWalletOptions] = useState(false);
+  
   const handleChainChange = (chain) => {
     setActiveChain(chain);
   };
@@ -24,6 +26,10 @@ const Header = ({
   const truncateAddress = (address) => {
     if (!address) return '';
     return `${address.slice(0, 4)}...${address.slice(-4)}`;
+  };
+  
+  const toggleWalletOptions = () => {
+    setShowWalletOptions(!showWalletOptions);
   };
   
   return (
@@ -45,29 +51,43 @@ const Header = ({
                 </button>
               </div>
             ) : (
-              <>
-                <button className="wallet-btn phantom-btn" onClick={connectPhantom}>
-                  <svg className="phantom-icon" width="16" height="16" viewBox="0 0 128 128" fill="none">
-                    <rect width="128" height="128" rx="64" fill="white"/>
-                    <path d="M110.584 64.9142H99.142C99.142 41.7651 80.173 23 56.7724 23C33.753 23 15 41.4108 15 64.9142C15 88.4176 33.753 106.828 56.7724 106.828H110.584V64.9142Z" fill="#534BB1"/>
-                    <path d="M98.8503 71.7538C98.8503 67.7163 95.5208 64.5 91.3615 64.5C87.2021 64.5 83.8726 67.7163 83.8726 71.7538C83.8726 75.7913 87.2021 79.0076 91.3615 79.0076H98.8503V71.7538Z" fill="#FFFFFF"/>
-                  </svg>
-                  <span>Phantom</span>
+              <div className="wallet-dropdown">
+                <button className="wallet-btn connect-wallet-btn" onClick={toggleWalletOptions}>
+                  <span>Connect Wallet</span>
                 </button>
-                <button className="wallet-btn solflare-btn" onClick={connectSolflare}>
-                  <svg className="solflare-icon" width="16" height="16" viewBox="0 0 96 96" fill="none">
-                    <circle cx="48" cy="48" r="48" fill="url(#paint0_linear_solflare)"/>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M47.8696 77.2H29L49.4783 16H68.3478L47.8696 77.2Z" fill="white"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_solflare" x1="0" y1="0" x2="96" y2="96" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#FE9426"/>
-                    <stop offset="1" stopColor="#FD4826"/>
-                    </linearGradient>
-                    </defs>
-                  </svg>
-                  <span>Solflare</span>
-                </button>
-              </>
+                
+                {showWalletOptions && (
+                  <div className="wallet-options">
+                    <button className="wallet-option phantom-btn" onClick={() => {
+                      connectPhantom();
+                      setShowWalletOptions(false);
+                    }}>
+                      <svg className="phantom-icon" width="16" height="16" viewBox="0 0 128 128" fill="none">
+                        <rect width="128" height="128" rx="64" fill="white"/>
+                        <path d="M110.584 64.9142H99.142C99.142 41.7651 80.173 23 56.7724 23C33.753 23 15 41.4108 15 64.9142C15 88.4176 33.753 106.828 56.7724 106.828H110.584V64.9142Z" fill="#534BB1"/>
+                        <path d="M98.8503 71.7538C98.8503 67.7163 95.5208 64.5 91.3615 64.5C87.2021 64.5 83.8726 67.7163 83.8726 71.7538C83.8726 75.7913 87.2021 79.0076 91.3615 79.0076H98.8503V71.7538Z" fill="#FFFFFF"/>
+                      </svg>
+                      <span>Phantom</span>
+                    </button>
+                    <button className="wallet-option solflare-btn" onClick={() => {
+                      connectSolflare();
+                      setShowWalletOptions(false);
+                    }}>
+                      <svg className="solflare-icon" width="16" height="16" viewBox="0 0 96 96" fill="none">
+                        <circle cx="48" cy="48" r="48" fill="url(#paint0_linear_solflare)"/>
+                        <path fillRule="evenodd" clipRule="evenodd" d="M47.8696 77.2H29L49.4783 16H68.3478L47.8696 77.2Z" fill="white"/>
+                        <defs>
+                        <linearGradient id="paint0_linear_solflare" x1="0" y1="0" x2="96" y2="96" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#FE9426"/>
+                        <stop offset="1" stopColor="#FD4826"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                      <span>Solflare</span>
+                    </button>
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </div>
