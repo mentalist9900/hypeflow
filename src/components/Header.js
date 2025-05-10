@@ -22,14 +22,14 @@ const Header = ({
     setActiveTab(tab);
   };
   
+  const toggleWalletOptions = () => {
+    setShowWalletOptions(!showWalletOptions);
+  };
+  
   // Function to truncate wallet address
   const truncateAddress = (address) => {
     if (!address) return '';
     return `${address.slice(0, 4)}...${address.slice(-4)}`;
-  };
-  
-  const toggleWalletOptions = () => {
-    setShowWalletOptions(!showWalletOptions);
   };
   
   return (
@@ -54,6 +54,9 @@ const Header = ({
               <div className="wallet-dropdown">
                 <button className="wallet-btn connect-wallet-btn" onClick={toggleWalletOptions}>
                   <span>Connect Wallet</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 10l5 5 5-5H7z"/>
+                  </svg>
                 </button>
                 
                 {showWalletOptions && (
